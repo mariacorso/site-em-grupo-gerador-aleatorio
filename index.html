@@ -1,126 +1,83 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roleta de Desafios</title>
-    <link rel="stylesheet" href="style.css">
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Persona | Gerador de Personagens</title>
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    <main class="container">
-        <header class="topo">
-            <p class="etiqueta">JOGO ENTRE AMIGOS</p>
-            <h1>Roleta <span>de Desafios</span></h1>
-            <p class="subtitulo">Gire a roleta e descubra seu próximo desafio!</p>
-        </header>
 
-        <section class="painel-principal">
-            <div class="roleta-area">
-                <div class="ponteiro"></div>
+  <header><span>✦</span> PERSONA <small>CHARACTER GENERATOR</small></header>
 
-                <div id="roleta" class="roleta">
-                    <div class="centro-roleta">GIRE!</div>
-                </div>
+  <main>
 
-                <button id="girarBtn" class="botao-principal">
-                    GIRAR ROLETA
-                </button>
+    <section class="intro">
 
-                <p id="mensagem" class="mensagem">
-                    Pronto para jogar?
-                </p>
-            </div>
+      <p>EXPLORE NOVAS POSSIBILIDADES</p>
 
-            <aside class="cartao resultado-cartao">
-                <p class="etiqueta">SEU DESAFIO</p>
-                <h2 id="desafioAtual">
-                    O que será que vem por aí?
-                </h2>
-                <p id="categoriaAtual" class="categoria-atual">
-                    Escolha uma categoria e gire!
-                </p>
+      <h1>Quem você vai descobrir?</h1>
 
-                <div class="estatistica">
-                    <span class="estatistica-icone">✦</span>
-                    <div>
-                        <strong id="contador">0</strong>
-                        <small>sorteios realizados</small>
-                    </div>
-                </div>
-            </aside>
-        </section>
+      <span>Cada combinação cria uma nova história.</span>
 
-        <section class="cartao filtros">
-            <div>
-                <p class="etiqueta">PERSONALIZE SUA RODADA</p>
-                <h2>Escolha uma categoria</h2>
-            </div>
+    </section>
 
-            <select id="filtroCategoria">
-                <option value="Todas">Todas as categorias</option>
-                <option value="Engraçados">Engraçados</option>
-                <option value="Dança e imitação">Dança e imitação</option>
-                <option value="Perguntas">Perguntas</option>
-                <option value="Entre amigos">Entre amigos</option>
-                <option value="Criados por você">Criados por você</option>
-            </select>
-        </section>
+    <section class="card">
 
-        <section class="duas-colunas">
-            <div class="cartao">
-                <p class="etiqueta">INVENTE UM NOVO</p>
-                <h2>Adicionar desafio</h2>
+      <div class="portrait" id="portrait">✦</div>
 
-                <form id="formDesafio">
-                    <label for="novoDesafio">Seu desafio</label>
-                    <textarea
-                        id="novoDesafio"
-                        rows="3"
-                        maxlength="140"
-                        placeholder="Digite seu desafio..."
-                        required
-                    ></textarea>
+      <div class="info">
 
-                    <label for="novaCategoria">Categoria</label>
-                    <select id="novaCategoria">
-                        <option value="Engraçados">Engraçados</option>
-                        <option value="Dança e imitação">Dança e imitação</option>
-                        <option value="Perguntas">Perguntas</option>
-                        <option value="Entre amigos">Entre amigos</option>
-                    </select>
+        <span class="tag" id="estilo">AGUARDANDO GERAÇÃO</span>
 
-                    <button class="botao-secundario" type="submit">
-                        + Adicionar desafio
-                    </button>
+        <h2 id="nome">Seu próximo personagem</h2>
 
-                    <p id="avisoFormulario" class="aviso"></p>
-                </form>
-            </div>
+        <p class="frase" id="frase">Sua próxima história começa aqui.</p>
 
-            <div class="cartao">
-                <div class="titulo-historico">
-                    <div>
-                        <p class="etiqueta">SEUS RESULTADOS</p>
-                        <h2>Histórico</h2>
-                    </div>
-                    <button id="limparBtn" class="botao-texto" type="button">
-                        Limpar
-                    </button>
-                </div>
+        <div class="details">
 
-                <ol id="historico" class="historico">
-                    <li class="historico-vazio">
-                        Seus desafios sorteados aparecerão aqui.
-                    </li>
-                </ol>
-            </div>
-        </section>
+          <p>Personalidade <b id="personalidade">—</b></p>
 
-        <footer>
-            Feito para se divertir ✦ Jogue com respeito e bom humor.
-        </footer>
-    </main>
+          <p>Poder especial <b id="poder">—</b></p>
 
-    <script src="script.js"></script>
+          <p>Cor favorita <b id="cor">—</b></p>
+
+        </div>
+
+        <button id="gerar">✧ &nbsp; Gerar personagem</button>
+
+        <button id="favoritar" class="outline">♡ &nbsp; Salvar favorito</button>
+
+        <p id="aviso"></p>
+
+      </div>
+
+    </section>
+
+    <section class="bottom">
+
+      <h3>Seus favoritos <span id="total">0</span></h3>
+
+      <div id="favoritos">Seus personagens salvos aparecerão aqui.</div>
+
+      <p id="contador">0 personagens descobertos</p>
+
+    </section>
+
+  </main>
+
+  <footer>PERSONA ©️ 2026 — Criado com imaginação.</footer>
+
+  <script src="script.js"></script>
+
 </body>
+
 </html>
