@@ -1,117 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
-
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  background: #101116;
-  color: #f5f2fa;
-  font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #10051f;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
 
-header {
-  padding: 25px 8%;
-  border-bottom: 1px solid #303039;
-  letter-spacing: 4px;
-  font-size: 19px;
+.container {
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
 }
 
-header span { color: #c9a9e9; }
-header small { color: #8d8998; font-size: 10px; margin-left: 12px; }
-
-main { width: 85%; max-width: 1000px; margin: auto; }
-
-.intro { text-align: center; padding: 45px 0 30px; }
-.intro p, .tag { color: #c4a0e5; letter-spacing: 2px; font-size: 11px; }
-
-h1, h2, h3 { font-family: 'Playfair Display', serif; }
-h1 { font-size: clamp(30px, 5vw, 43px); font-weight: 500; margin: 12px 0; }
-.intro span, .frase { color: #aaa6b4; }
-
-.card {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 30px;
-  padding: 25px;
-  border: 1px solid #35333f;
-  border-radius: 15px;
-  background: #17181f;
+h1 {
+    color: #00ffff;
+    text-shadow: 0 0 12px #00ffff;
 }
 
-.portrait {
-  min-height: 340px;
-  border-radius: 10px;
-  background: linear-gradient(145deg, #393044, #20212b);
-  display: grid;
-  place-items: center;
-  font-size: 70px;
-  color: #d5b8f1;
-  background-size: cover;
-  background-position: center;
+.roleta {
+    width: 220px;
+    height: 220px;
+    margin: 30px auto;
+    border: 5px solid white;
+    border-radius: 50%;
+    background: conic-gradient(
+        #ff00ff,
+        #00ffff,
+        #8a2be2,
+        #ff1493,
+        #00ffff,
+        #ff00ff
+    );
+    box-shadow: 0 0 20px #00ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    transition: transform 2s ease-out;
 }
-
-.info { align-self: center; }
-h2 { font-size: 32px; font-weight: 500; margin: 12px 0; }
-.frase { font-style: italic; line-height: 1.6; }
-
-.details {
-  margin: 25px 0;
-  border-top: 1px solid #34323d;
-}
-
-.details p {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  border-bottom: 1px solid #34323d;
-  padding: 12px 0;
-  font-size: 13px;
-  color: #aaa6b4;
-}
-
-.details b { color: #eee8f6; text-align: right; }
 
 button {
-  width: 100%;
-  padding: 13px;
-  margin-top: 10px;
-  border: 1px solid #c8a6e7;
-  border-radius: 7px;
-  background: #c8a6e7;
-  color: #17121e;
-  font: inherit;
-  cursor: pointer;
-  transition: 0.2s;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #ff00ff;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff00ff;
 }
 
-button:hover { filter: brightness(1.12); transform: translateY(-2px); }
-button.outline { background: transparent; color: #e0c8f4; }
-#aviso { font-size: 12px; color: #c8a6e7; }
-
-.bottom {
-  margin-top: 25px;
-  padding: 20px 0;
-  border-top: 1px solid #35333f;
+button:hover {
+    background: #cc00cc;
 }
 
-.bottom h3 { font-size: 22px; }
-#total { color: #c8a6e7; margin-left: 8px; }
-#favoritos { color: #aaa6b4; font-size: 14px; line-height: 2; }
-#contador { text-align: right; font-size: 12px; color: #8d8998; }
-
-footer {
-  text-align: center;
-  border-top: 1px solid #292832;
-  padding: 25px;
-  color: #777381;
-  font-size: 11px;
-  letter-spacing: 1px;
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-@media (max-width: 650px) {
-  main { width: 90%; }
-  .card { grid-template-columns: 1fr; padding: 17px; gap: 20px; }
-  .portrait { min-height: 240px; }
-  header { padding: 22px 5%; }
-  header small { display: block; margin: 8px 0 0 25px; }
+#resultado {
+    min-height: 55px;
+    margin-top: 25px;
+    color: #00ffff;
+    overflow-wrap: anywhere;
+}
+
+p {
+    line-height: 1.5;
 }

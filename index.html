@@ -1,83 +1,31 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+    <title>Roleta de Desafios</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Persona | Gerador de Personagens</title>
-
-  <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <header><span>✦</span> PERSONA <small>CHARACTER GENERATOR</small></header>
+    <main class="container">
+        <h1>🎯 Roleta de Desafios</h1>
 
-  <main>
+        <p>Clique e descubra seu desafio!</p>
 
-    <section class="intro">
-
-      <p>EXPLORE NOVAS POSSIBILIDADES</p>
-
-      <h1>Quem você vai descobrir?</h1>
-
-      <span>Cada combinação cria uma nova história.</span>
-
-    </section>
-
-    <section class="card">
-
-      <div class="portrait" id="portrait">✦</div>
-
-      <div class="info">
-
-        <span class="tag" id="estilo">AGUARDANDO GERAÇÃO</span>
-
-        <h2 id="nome">Seu próximo personagem</h2>
-
-        <p class="frase" id="frase">Sua próxima história começa aqui.</p>
-
-        <div class="details">
-
-          <p>Personalidade <b id="personalidade">—</b></p>
-
-          <p>Poder especial <b id="poder">—</b></p>
-
-          <p>Cor favorita <b id="cor">—</b></p>
-
+        <div class="roleta" id="roleta">
+            🎲
         </div>
 
-        <button id="gerar">✧ &nbsp; Gerar personagem</button>
+        <button id="sortear">Girar roleta</button>
 
-        <button id="favoritar" class="outline">♡ &nbsp; Salvar favorito</button>
+        <h2 id="resultado">Seu desafio aparecerá aqui!</h2>
 
-        <p id="aviso"></p>
+        <p>Desafios sorteados: <span id="contador">0</span></p>
+    </main>
 
-      </div>
-
-    </section>
-
-    <section class="bottom">
-
-      <h3>Seus favoritos <span id="total">0</span></h3>
-
-      <div id="favoritos">Seus personagens salvos aparecerão aqui.</div>
-
-      <p id="contador">0 personagens descobertos</p>
-
-    </section>
-
-  </main>
-
-  <footer>PERSONA ©️ 2026 — Criado com imaginação.</footer>
-
-  <script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
