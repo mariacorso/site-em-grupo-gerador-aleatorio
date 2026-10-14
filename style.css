@@ -1,80 +1,187 @@
+/* ==========================================
+   Roleta de Desafios - estilos (tema neon)
+   ========================================== */
+
+/* Cores do site guardadas em variáveis, para facilitar a troca */
+:root {
+  --fundo: #12002b;        /* roxo bem escuro */
+  --ciano: #00f0ff;
+  --rosa: #ff2fa6;
+  --texto: #ffffff;
+  --tamanho-roleta: min(80vw, 380px); /* a roleta encolhe no celular */
+}
+
+/* Faz padding e borda entrarem na conta da largura */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #10051f;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #2a0a5e 0%, var(--fundo) 60%);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
+/* Coluna central que guarda todo o conteúdo */
 .container {
-    width: 90%;
-    max-width: 500px;
-    padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
 }
 
-h1 {
-    color: #00ffff;
-    text-shadow: 0 0 12px #00ffff;
+/* ---------- Título ---------- */
+.titulo {
+  margin: 0 0 28px;
+  font-size: clamp(2rem, 9vw, 3.2rem); /* cresce/diminui conforme a tela */
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
+.titulo-ciano {
+  color: var(--ciano);
+  text-shadow: 0 0 10px var(--ciano), 0 0 25px var(--ciano);
+}
+
+.titulo-rosa {
+  color: var(--rosa);
+  text-shadow: 0 0 10px var(--rosa), 0 0 25px var(--rosa);
+}
+
+/* ---------- Roleta ---------- */
+.area-roleta {
+  position: relative; /* a seta se posiciona em relação a esta área */
+  width: var(--tamanho-roleta);
+  height: var(--tamanho-roleta);
+  margin: 0 auto 32px;
+}
+
+/* A roleta: um círculo dividido em 8 fatias coloridas */
 .roleta {
-    width: 220px;
-    height: 220px;
-    margin: 30px auto;
-    border: 5px solid white;
-    border-radius: 50%;
-    background: conic-gradient(
-        #ff00ff,
-        #00ffff,
-        #8a2be2,
-        #ff1493,
-        #00ffff,
-        #ff00ff
-    );
-    box-shadow: 0 0 20px #00ffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 55px;
-    transition: transform 2s ease-out;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 6px solid var(--ciano);
+  box-shadow: 0 0 20px var(--ciano), 0 0 50px rgba(0, 240, 255, 0.4);
+  /* conic-gradient desenha as fatias, 45 graus cada (360 / 8) */
+  background: conic-gradient(
+    #ff2fa6 0deg 45deg,
+    #00f0ff 45deg 90deg,
+    #ffe600 90deg 135deg,
+    #7CFF3F 135deg 180deg,
+    #ff7a00 180deg 225deg,
+    #b44bff 225deg 270deg,
+    #2f6bff 270deg 315deg,
+    #ff3b3b 315deg 360deg
+  );
 }
 
-button {
-    padding: 14px 25px;
-    border: none;
-    border-radius: 10px;
-    background: #ff00ff;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 15px #ff00ff;
+/* Número de cada fatia (posição e rotação definidas no JavaScript) */
+.rotulo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #12002b;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
 }
 
-button:hover {
-    background: #cc00cc;
+/* Bolinha no centro da roleta, só de enfeite */
+.roleta::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18%;
+  height: 18%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--fundo);
+  border: 4px solid var(--rosa);
+  box-shadow: 0 0 15px var(--rosa);
 }
 
-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+/* Seta (triângulo) no topo, apontando para baixo */
+.seta {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 30px solid var(--rosa);
+  filter: drop-shadow(0 0 8px var(--rosa));
 }
 
-#resultado {
-    min-height: 55px;
-    margin-top: 25px;
-    color: #00ffff;
-    overflow-wrap: anywhere;
+/* ---------- Botão ---------- */
+.botao {
+  padding: 16px 40px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: var(--rosa);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--rosa), 0 0 35px rgba(255, 47, 166, 0.6);
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
-p {
-    line-height: 1.5;
+.botao:hover:not(:disabled) {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px var(--rosa), 0 0 55px rgba(255, 47, 166, 0.8);
+}
+
+/* Aparência do botão quando está desativado (roleta girando) */
+.botao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ---------- Caixa do desafio ---------- */
+.caixa-desafio {
+  margin: 32px auto 0;
+  padding: 20px;
+  max-width: 480px;
+  border: 2px solid var(--ciano);
+  border-radius: 16px;
+  background: rgba(0, 240, 255, 0.06);
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.5);
+}
+
+.caixa-titulo {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  color: var(--ciano);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.desafio-texto {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+/* ---------- Contador ---------- */
+.contador-area {
+  margin-top: 24px;
+  font-size: 1.1rem;
+  color: var(--rosa);
+}
+
+#contador {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--ciano);
+  text-shadow: 0 0 8px var(--ciano);
 }

@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <!-- Faz o site se ajustar à tela do celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roleta de Desafios</title>
 
-    <title>Roleta de Desafios</title>
-
-    <link rel="stylesheet" href="style.css">
+  <!-- Conecta o arquivo de estilos (mesma pasta) -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <main class="container">
 
-    <main class="container">
-        <h1>🎯 Roleta de Desafios</h1>
+    <!-- Título com duas cores neon -->
+    <h1 class="titulo">
+      <span class="titulo-ciano">Roleta de</span>
+      <span class="titulo-rosa">Desafios</span>
+    </h1>
 
-        <p>Clique e descubra seu desafio!</p>
+    <!-- Área da roleta -->
+    <section class="area-roleta">
+      <!-- Setinha rosa que aponta para o desafio sorteado -->
+      <div class="seta" aria-hidden="true"></div>
 
-        <div class="roleta" id="roleta">
-            🎲
-        </div>
+      <!-- A roleta em si (as fatias numeradas são criadas pelo JavaScript) -->
+      <div id="roleta" class="roleta"></div>
+    </section>
 
-        <button id="sortear">Girar roleta</button>
+    <!-- Botão que gira a roleta -->
+    <button id="botao-girar" class="botao" type="button">Girar roleta</button>
 
-        <h2 id="resultado">Seu desafio aparecerá aqui!</h2>
+    <!-- Área que mostra o desafio sorteado -->
+    <section class="caixa-desafio">
+      <h2 class="caixa-titulo">Seu desafio:</h2>
+      <p id="desafio" class="desafio-texto" aria-live="polite">
+        Clique em "Girar roleta" para sortear!
+      </p>
+    </section>
 
-        <p>Desafios sorteados: <span id="contador">0</span></p>
-    </main>
+    <!-- Contador de sorteios -->
+    <p class="contador-area">
+      Sorteios realizados: <span id="contador">0</span>
+    </p>
 
-    <script src="script.js"></script>
+  </main>
+
+  <!-- O script fica no final do body, assim os elementos acima já existem quando ele roda -->
+  <script src="script.js"></script>
 </body>
 </html>
